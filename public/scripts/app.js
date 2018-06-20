@@ -20,19 +20,30 @@ const tweetData = {
     "created_at": 1461116232227
   }
 
-function createTweetElement(tweetObject){
+function createTweetElement(objectOfTweets){
     let $tweet = `
     <article class="tweet">
     <header>
-      <img class="tweet-picture" src="${tweetObject.user.avatars.small}">
-      <h2 class="tweeter-name">${tweetObject.user.name}</h2>
-      <p class="tweeter-handler">${tweetObject.user.handle}</p>
+      <img class="tweet-picture" src="${objectOfTweets.user.avatars.small}">
+      <h2 class="tweeter-name">${objectOfTweets.user.name}</h2>
+      <p class="tweeter-handler">${objectOfTweets.user.handle}</p>
     </header>
-      <p class="tweet-content">${tweetObject.content.text}</p>
+      <p class="tweet-content">${objectOfTweets.content.text}</p>
     <footer>
-      <p class="release-date">${tweetObject.created_at}</p>
+      <p class="release-date">${objectOfTweets.created_at}</p>
     </footer>
   </article>
     `
     return $tweet;
 }
+
+function renderTweets(tweetObject){
+
+    tweetObject.forEach(function(individualTweets){
+        $newTweet = createTweetElement(individualTweets)
+        $(".existing-tweets").append(newTweet)
+    })
+
+}
+
+renderTweets(tweetData);
