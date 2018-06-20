@@ -1,0 +1,67 @@
+.tweet{
+    margin-top: 5px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tweet:hover{
+    border: 0.5px solid black;    
+}
+
+.tweet header{
+    padding-top: 5px;
+    margin: 0;
+    background-color: rgb(241, 241, 241);
+    padding-bottom: 4em;
+}
+
+.tweet-picture{
+    float: left;
+    margin-left: 0.5em;
+    margin-top: 4px;
+    border-radius: 5px;
+}
+
+.tweeter-name{
+    color: gray;
+    margin-top: 5px;
+    float: left; 
+    padding-left: 0.5em;
+}
+
+.tweet:hover .tweeter-name {
+    color: black;
+}
+
+.tweeter-handler{
+    padding-right: 10px;
+    float: right;
+    /* margin: 0; */
+    color: gray;
+}
+
+.tweet:hover .tweeter-handler {
+    color: black;
+}
+
+.tweet-content {
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+
+
+.tweet footer{
+    border-top: 1px solid gray;
+    margin: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+}
+
+.release-date {
+    margin: 0;
+}
