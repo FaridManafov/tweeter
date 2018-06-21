@@ -7,7 +7,7 @@ $(document).ready(function() {
     counter.text(charLimit);
 
     let overLimit = $(".counter").text() < 0
-    $(".counter").toggleClass("overLimit", overLimit) 
+    $(".counter").toggleClass("overLimit", overLimit)
   });
 });
 

@@ -44,21 +44,31 @@ $(document).ready(function(){
   $(".new-tweet form").on("submit", function(event){
     event.preventDefault();
     let input = $(".textArea").serialize()
-    console.log(input)
-    // console.log(event.target)
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: input, //tried to parse
-      success: function(){
-        $.ajax({
-          method: "GET",
-          url: "/tweets",
-          success: renderTweets//put into a seperate function
-        })
-      }
-    })
-    
+
+    function postTweet(){
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: input, //tried to parse
+        success: function(){
+          $.ajax({
+            method: "GET",
+            url: "/tweets",
+            success: renderTweets//put into a seperate function
+          })
+        }
+      })
+    }
+
+    //Validator
+    if ($(".textArea").val() === null || $(".textArea").val() === null){
+      alert("Nothing is written")
+    } else if($(".textArea").val().length > 140){
+      alert("Too many characters written!")
+    } else {
+      postTweet();
+    }
+
 
 
     // .done()
