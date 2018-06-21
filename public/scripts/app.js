@@ -33,43 +33,39 @@ function renderTweets(arrayOfTweets){
 
 $(document).ready(function(){
 
-  // renderTweets(tweetData);
+  //get tweets function
+  function fetchTweets(){
+    $.ajax({
+      method: "GET",
+      url: "/tweets",
+      success: renderTweets
+    })
+  }
 
-  $.ajax({
-    method: "GET",
-    url: "/tweets",
-    success: renderTweets
-  })
+  fetchTweets()
 
   $(".new-tweet form").on("submit", function(event){
     event.preventDefault();
+
     let input = $(".textArea").serialize()
 
     function postTweet(){
       $.ajax({
         method: "POST",
         url: "/tweets",
-        data: input, //tried to parse
-        success: function(){
-          $.ajax({
-            method: "GET",
-            url: "/tweets",
-            success: renderTweets//put into a seperate function
-          })
-        }
+        data: input, 
+        success: fetchTweets
       })
     }
 
     //Validator
-    if ($(".textArea").val() === null || $(".textArea").val() === null){
+    if ($(".textArea").val() === "" || $(".textArea").val() === null){
       alert("Nothing is written")
     } else if($(".textArea").val().length > 140){
       alert("Too many characters written!")
     } else {
       postTweet();
     }
-
-
 
     // .done()
     //parsing the input
