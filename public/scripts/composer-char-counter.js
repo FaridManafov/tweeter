@@ -16,12 +16,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
     //alternatively I could have done on line 6:
     // 1: let counter = 
     // $(this).siblings(".counter").text(charlimit)
