@@ -6,6 +6,12 @@
 
 const tweetData = []
 
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 function createTweetElement(objectOfTweets){
     let $tweet = `
     <article class="tweet">
@@ -14,7 +20,7 @@ function createTweetElement(objectOfTweets){
       <h2 class="tweeter-name">${objectOfTweets.user.name}</h2>
       <p class="tweeter-handler">${objectOfTweets.user.handle}</p>
     </header>
-      <p class="tweet-content">${objectOfTweets.content.text}</p>
+      <p class="tweet-content">${escape(objectOfTweets.content.text)}</p>
     <footer>
       <p class="release-date">${objectOfTweets.created_at}</p>
     </footer>
@@ -47,6 +53,7 @@ $(document).ready(function(){
   $(".new-tweet form").on("submit", function(event){
     event.preventDefault();
 
+    let xssDeny = $(".textarea").text()
     let input = $(".textArea").serialize()
 
     function postTweet(){

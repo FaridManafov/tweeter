@@ -21,3 +21,30 @@
     float: left;
     margin-right: 10px;
 }
+
+#nav-bar .compose-button{
+    float: right;
+    margin-top: 8px;
+    background-color: #E7FDFF;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: #40988D;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#nav-bar .compose-button:hover{
+    float: right;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: rgb(36, 36, 36);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+/* hover text is black */
